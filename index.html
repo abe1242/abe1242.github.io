@@ -6,6 +6,31 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>u gay 🌈</h1>
+    <h1>Coming soon...</h1>
+    <div id="counter"></div>
+    <script>
+        const counter = document.getElementById("counter");
+        
+        var intervalId = window.setInterval(function(){
+            const startDate = new Date();
+            const birthDay = new Date("2024-06-11");
+            
+            let seconds = Math.trunc((birthDay.getTime() - startDate.getTime()) / 1000);
+            let minutes = Math.floor(seconds/60);
+            let hours = Math.floor(minutes/60);
+            let days = Math.floor(hours/24);
+
+            hours = hours-(days*24);
+            minutes = minutes-(days*24*60)-(hours*60);
+            seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60);
+
+            counter.innerHTML = `
+                ${days} days<br>
+                ${hours} hours<br>
+                ${minutes} minutes<br>
+                ${seconds} seconds<br>
+            `;
+        }, 1000);
+    </script>
 </body>
 </html>
